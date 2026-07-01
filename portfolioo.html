@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Portfolio and Personal Branding Website</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f4f4f4;
+color:#333;
+transition:.4s;
+}
+
+body.dark{
+background:#111827;
+color:#fff;
+}
+
+/* Navbar */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#2563eb;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:white;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:yellow;
+}
+
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:white;
+}
+
+.theme-btn{
+background:white;
+color:#2563eb;
+padding:8px 12px;
+border-radius:20px;
+cursor:pointer;
+font-size:14px;
+border:none;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:100px 8%;
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:white;
+}
+
+.hero-text{
+width:55%;
+animation:slideLeft 1.5s;
+}
+
+.hero-text h1{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.hero-text h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:white;
+color:#2563eb;
+text-decoration:none;
+font-weight:bold;
+border-radius:30px;
+margin-right:15px;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+background:#111827;
+color:white;
+}
+
+.hero img{
+width:340px;
+border-radius:50%;
+border:8px solid white;
+animation:float 3s infinite;
+}
+
+/* About */
+
+section{
+padding:90px 8%;
+}
+
+.title{
+text-align:center;
+font-size:38px;
+margin-bottom:40px;
+color:#2563eb;
+}
+
+.about{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:50px;
+}
+
+.about img{
+width:320px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.about-text{
+flex:1;
+}
+
+.about-text h3{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.about-text p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:15px;
+}
+
+/* Animations */
+
+@keyframes slideLeft{
+
+from{
+opacity:0;
+transform:translateX(-80px);
+}
+
+to{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:130px;
+}
+
+.hero-text{
+width:100%;
+}
+
+.hero img{
+margin-top:30px;
+width:250px;
+}
+
+.about{
+flex-direction:column;
+text-align:center;
+}
+
+nav{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">MyPortfolio</div>
+
+<nav>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div>
+
+<button class="theme-btn" id="themeBtn">
+🌙
+</button>
+
+<i class="fas fa-bars menu-btn"></i>
+
+</div>
+
+</header>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>Hello, I'm Saloni Bhakte(CS24171)</h1>
+
+<h2><span id="typing"></span></h2>
+
+<p>
+I'm a Freelance Web Developer creating responsive,
+interactive and modern websites using HTML, CSS,
+JavaScript and React.
+</p>
+
+<a href="#projects" class="btn">
+View Projects
+</a>
+
+<a href="C:\Users\salon\Downloads\resume.pdf" class="btn" download>
+Download Resume
+</a>
+
+</div>
+
+<img src="profile.jpg" alt="Profile">
+
+</section>
+
+<!-- About -->
+
+<section id="about">
+
+<h2 class="title">
+About Me
+</h2>
+
+<div class="about">
+
+<img src="profile.jpg" alt="About">
+
+<div class="about-text">
+
+<h3>Professional Web Developer</h3>
+
+<p>
+
+I specialize in building responsive websites,
+dynamic web applications and user-friendly
+interfaces. I enjoy solving real-world problems
+through clean and efficient code.
+
+</p>
+
+<p>
+
+My expertise includes HTML, CSS, JavaScript,
+Bootstrap, React, PHP and MySQL. I have completed
+multiple freelance projects and continuously learn
+new technologies.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Skills section starts here -->
+ <!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+<h2 class="title">My Skills</h2>
+
+<div class="skills-container">
+
+<div class="skill">
+<h3>HTML <span>95%</span></h3>
+<div class="progress">
+<div class="progress-bar html"></div>
+</div>
+</div>
+
+<div class="skill">
+<h3>CSS <span>90%</span></h3>
+<div class="progress">
+<div class="progress-bar css"></div>
+</div>
+</div>
+
+<div class="skill">
+<h3>JavaScript <span>85%</span></h3>
+<div class="progress">
+<div class="progress-bar js"></div>
+</div>
+</div>
+
+<div class="skill">
+<h3>React <span>80%</span></h3>
+<div class="progress">
+<div class="progress-bar react"></div>
+</div>
+</div>
+
+<div class="skill">
+<h3>PHP <span>75%</span></h3>
+<div class="progress">
+<div class="progress-bar php"></div>
+</div>
+</div>
+
+<div class="skill">
+<h3>MySQL <span>78%</span></h3>
+<div class="progress">
+<div class="progress-bar mysql"></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+<h2 class="title">My Projects</h2>
+
+<div class="filter-buttons">
+
+<button class="filter-btn active" data-filter="all">
+All
+</button>
+
+<button class="filter-btn" data-filter="frontend">
+Frontend
+</button>
+
+<button class="filter-btn" data-filter="backend">
+Backend
+</button>
+
+<button class="filter-btn" data-filter="fullstack">
+Full Stack
+</button>
+
+</div>
+
+<div class="project-container">
+
+<div class="project-card frontend">
+
+<img src="project1.jpg" alt="">
+
+<h3>Portfolio Website</h3>
+
+<p>
+Responsive personal portfolio using HTML, CSS and JavaScript.
+</p>
+
+<a href="#" class="btn">Live Demo</a>
+
+</div>
+
+<div class="project-card backend">
+
+<img src="project2.jpg" alt="">
+
+<h3>Student Management</h3>
+
+<p>
+PHP & MySQL application for managing student records.
+</p>
+
+<a href="#" class="btn">Live Demo</a>
+
+</div>
+
+<div class="project-card fullstack">
+
+<img src="project3.jpg" alt="">
+
+<h3>E-Commerce Website</h3>
+
+<p>
+Shopping website with login, cart and payment system.
+</p>
+
+<a href="#" class="btn">Live Demo</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= RESUME ================= -->
+
+<section id="resume">
+
+<h2 class="title">Resume</h2>
+
+<div class="resume-box">
+
+<h3>Download My Resume</h3>
+
+<p>
+Click the button below to download my latest resume.
+</p>
+
+<a href="resume.pdf" download class="btn">
+
+<i class="fa-solid fa-download"></i>
+
+Download Resume
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section id="testimonials">
+
+<h2 class="title">Testimonials</h2>
+
+<div class="testimonial-container">
+
+<div class="testimonial active">
+
+<p>
+"Excellent developer! Delivered the project on time with great quality."
+</p>
+
+<h4>— Client A</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+"Very professional and skilled in frontend development."
+</p>
+
+<h4>— Client B</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+"Amazing work! Highly recommended for web projects."
+</p>
+
+<h4>— Client C</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<div class="contact-box">
+
+<form id="contactForm">
+
+<input type="text" id="name" placeholder="Your Name">
+
+<input type="email" id="email" placeholder="Your Email">
+
+<input type="text" id="subject" placeholder="Subject">
+
+<textarea id="message" placeholder="Message"></textarea>
+
+<button type="submit" class="btn">Send Message</button>
+
+<p id="errorMsg"></p>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>© 2026 My Portfolio | All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+// ================= CONTACT FORM VALIDATION =================
+
+let form = document.getElementById("contactForm");
+let errorMsg = document.getElementById("errorMsg");
+
+form.addEventListener("submit", function(e){
+e.preventDefault();
+
+let name = document.getElementById("name").value.trim();
+let email = document.getElementById("email").value.trim();
+let subject = document.getElementById("subject").value.trim();
+let message = document.getElementById("message").value.trim();
+
+if(name === "" || email === "" || subject === "" || message === ""){
+errorMsg.textContent = "All fields are required!";
+return;
+}
+
+if(!email.includes("@") || !email.includes(".")){
+errorMsg.textContent = "Enter a valid email!";
+return;
+}
+
+if(message.length < 10){
+errorMsg.textContent = "Message must be at least 10 characters!";
+return;
+}
+
+errorMsg.style.color = "green";
+errorMsg.textContent = "Message sent successfully!";
+
+form.reset();
+
+});
+
+// ================= PROJECT FILTER =================
+
+let filterBtns = document.querySelectorAll(".filter-btn");
+let projects = document.querySelectorAll(".project-card");
+
+filterBtns.forEach(btn => {
+btn.addEventListener("click", () => {
+
+filterBtns.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
+
+let filter = btn.getAttribute("data-filter");
+
+projects.forEach(project => {
+
+if(filter === "all"){
+project.style.display = "block";
+}else{
+if(project.classList.contains(filter)){
+project.style.display = "block";
+}else{
+project.style.display = "none";
+}
+}
+
+});
+
+});
+});
+
+// ================= TYPING ANIMATION =================
+
+let typingText = document.getElementById("typing");
+
+let words = ["Web Developer", "Freelancer", "UI Designer", "React Developer"];
+
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+
+function type(){
+
+currentWord = words[i];
+
+if(isDeleting){
+typingText.textContent = currentWord.substring(0, j--);
+}else{
+typingText.textContent = currentWord.substring(0, j++);
+}
+
+if(!isDeleting && j === currentWord.length){
+isDeleting = true;
+setTimeout(type, 1000);
+return;
+}
+
+if(isDeleting && j === 0){
+isDeleting = false;
+i++;
+
+if(i === words.length){
+i = 0;
+}
+
+}
+
+setTimeout(type, isDeleting ? 80 : 120);
+
+}
+
+type();
+
+// ================= SMOOTH SCROLL =================
+
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+anchor.addEventListener("click", function(e){
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+
+});
+});
+
+</script>
+
+</body>
+</html>
