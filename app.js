@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // ========================
 // MONGODB CONNECTION
 // ========================
-mongoose.connect("mongodb://salonibhakte_db_user:5ntHsoh32yNS5qr7@ac-qf7exfi-shard-00-00.utlj2ir.mongodb.net:27017,ac-qf7exfi-shard-00-01.utlj2ir.mongodb.net:27017,ac-qf7exfi-shard-00-02.utlj2ir.mongodb.net:27017/?ssl=true&replicaSet=atlas-2ycw7u-shard-0&authSource=admin&appName=Cluster0")
+mongoose.connect("Connection Link")
 .then(() => console.log("MongoDB Connected"))
 .catch((err) => console.log("MongoDB Connection Error:", err));
 
