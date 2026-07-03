@@ -2,38 +2,23 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 
-const User = require("./User"); // if your file is User.js in main folder
+const User = require("./User"); 
 
 const app = express();
 const PORT = 5000;
-
-// ========================
-// MIDDLEWARE
-// ========================
-
-// To read form data from HTML
 app.use(express.urlencoded({ extended: true }));
 
-// Serve frontend files (HTML, CSS)
 app.use(express.static(path.join(__dirname, "public")));
 
-// ========================
-// MONGODB CONNECTION
-// ========================
 mongoose.connect("Connection Link")
 .then(() => console.log("MongoDB Connected"))
 .catch((err) => console.log("MongoDB Connection Error:", err));
 
-// ========================
-// ROUTES
-// ========================
-
-// Home route (optional if using public/index.html)
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// POST route for form submission
+
 app.post("/register", async (req, res) => {
     try {
         console.log("FORM DATA RECEIVED:", req.body);
@@ -60,9 +45,6 @@ app.post("/register", async (req, res) => {
     }
 });
 
-// ========================
-// START SERVER
-// ========================
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
