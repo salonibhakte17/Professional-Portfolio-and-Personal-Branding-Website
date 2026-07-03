@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Auction</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🔥 Live Auction</h1>
+
+<button onclick="resetAuction()">Reset Auction</button>
+
+<div id="container"></div>
+
+<script>
+const socket = io();
+let auctions = [];
+
+function format(ms) {
+  const d = Math.floor(ms / (1000*60*60*24));
+  const h = Math.floor((ms / (1000*60*60)) % 24);
+  const m = Math.floor((ms / (1000*60)) % 60);
+  const s = Math.floor((ms / 1000) % 60);
+  return `${d}:${h}:${m}:${s}`;
+}
+
+socket.on("init", (data) => {
+  auctions = data;
+  render();
+});
+
+socket.on("update", (data) => {
+  const i = auctions.findIndex(a => a.id === data.id);
+  auctions[i] = data;
+  render();
+});
+
+socket.on("tick", (data) => {
+  data.forEach(a => {
+    const el = document.getElementById("t-" + a.id);
+    if (!el) return;
+    el.innerText = format(a.endTime - Date.now());
+  });
+});
+
+function render() {
+  const c = document.getElementById("container");
+  c.innerHTML = "";
+
+  auctions.forEach(a => {
+    c.innerHTML += `
+      <div class="card">
+        <img src="${a.image}" />
+        <h3>${a.name}</h3>
+
+        <p>⏳ <span id="t-${a.id}"></span></p>
+        <p>💰 ₹${a.highestBid}</p>
+        <p>👤 ${a.bidder}</p>
+
+        <input id="n-${a.id}" placeholder="Name">
+        <input id="b-${a.id}" type="number" placeholder="Bid">
+
+        <button onclick="bid(${a.id})">Place Bid</button>
+      </div>
+    `;
+  });
+}
+
+function bid(id) {
+  socket.emit("placeBid", {
+    id,
+    name: document.getElementById("n-" + id).value,
+    bid: Number(document.getElementById("b-" + id).value)
+  });
+}
+
+function resetAuction() {
+  socket.emit("reset");
+}
+</script>
+
+</body>
+</html>
